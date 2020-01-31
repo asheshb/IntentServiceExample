@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IntentService Example</string>
+    <string name="download_google">Download Google</string>
+    <string name="download_facebook">Download Facebook</string>
+</resources>
