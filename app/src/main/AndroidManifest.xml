@@ -4,6 +4,7 @@
     package="com.example.intentserviceexample">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +26,10 @@
             android:name=".MyIntentService"
             android:enabled="true"
             android:exported="false" />
+
+        <service
+            android:name=".MyJobIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>
