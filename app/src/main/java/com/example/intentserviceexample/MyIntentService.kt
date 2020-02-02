@@ -10,6 +10,7 @@ class MyIntentService : IntentService("MyIntentService") {
 
 
     override fun onHandleIntent(intent: Intent?) {
+        // Background thread
         if(intent?.action == ACTION_DOWNLOAD_URL){
             val url = intent.dataString
             val fileName = intent.getStringExtra(FILE_NAME_KEY)
