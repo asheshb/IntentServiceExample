@@ -16,14 +16,14 @@ class MyIntentService : IntentService("MyIntentService") {
             val fileName = intent.getStringExtra(FILE_NAME_KEY)
             if(url != null && fileName != null){
                 val content = getDataFromNetwork(url)
+
                 File(this.filesDir, fileName).writeText(content)
+
                 Intent(ACTION_DOWNLOAD_URL).also {
                     it.putExtra(FILE_NAME_KEY, fileName)
                     LocalBroadcastManager.getInstance(this).sendBroadcast(it)
                 }
             }
-
         }
-
     }
 }

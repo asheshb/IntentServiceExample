@@ -48,13 +48,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-        LocalBroadcastManager.getInstance(this)
-            .unregisterReceiver(broadcastReceiver)
-    }
-
     private fun startIntentService(url: String, fileName: String){
         Intent(this, MyIntentService::class.java).apply {
             action = ACTION_DOWNLOAD_URL
@@ -63,4 +56,12 @@ class MainActivity : AppCompatActivity() {
             startService(this)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        LocalBroadcastManager.getInstance(this)
+            .unregisterReceiver(broadcastReceiver)
+    }
+
 }
