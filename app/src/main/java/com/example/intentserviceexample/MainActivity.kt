@@ -39,12 +39,10 @@ class MainActivity : AppCompatActivity() {
             .registerReceiver(broadcastReceiver, IntentFilter(ACTION_DOWNLOAD_URL))
 
         download_google.setOnClickListener{
-            //startIntentService("https://www.google.com/", "google.txt")
             enqueueJobIntentService("https://www.google.com/", "google.txt")
         }
 
         download_facebook.setOnClickListener{
-            //startIntentService("https://www.facebook.com/", "facebook.txt")
             enqueueJobIntentService("https://www.facebook.com/", "facebook.txt")
         }
 
@@ -67,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     private fun enqueueJobIntentService(url: String, fileName: String){
-        Intent(this, MyIntentService::class.java).apply {
+        Intent(this, MyJobIntentService::class.java).apply {
             action = ACTION_DOWNLOAD_URL
             data = Uri.parse(url)
             putExtra(FILE_NAME_KEY, fileName)
